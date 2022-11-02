@@ -8,6 +8,16 @@ class Customer {
     this._id = id
     this._name = name
     this._addres = address
+    this.validate()
+  }
+
+  validate() {
+    if (this._name.length === 0) {
+      throw new Error("Name is required")
+    }
+    if (this._addres.length === 0) {
+      throw new Error("Address is required")
+    }
   }
 
   get id(): string {
