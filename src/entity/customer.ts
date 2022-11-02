@@ -1,13 +1,14 @@
+import Address from './address'
+
 class Customer {
 
   _id: string
   _name: string
-  _addres: string
+  _address!: Address
   
   constructor(id: string, name: string, address: string) {
     this._id = id
     this._name = name
-    this._addres = address
     this.validate()
   }
 
@@ -15,7 +16,7 @@ class Customer {
     if (this._name.length === 0) {
       throw new Error("Name is required")
     }
-    if (this._addres.length === 0) {
+    if (this._address != undefined) {
       throw new Error("Address is required")
     }
   }
@@ -27,9 +28,7 @@ class Customer {
   get name(): string {
     return this._name
   }
-  get addres(): string {
-    return this._addres
-  }
+
   set id(id: string) {
     this._id = id
   }
@@ -37,8 +36,11 @@ class Customer {
   set name(name: string) {
     this._name = name
   }
-  set addres(address: string) {
-    this._addres = address
+
+  // Address não é inicializado mas ele pode ser setado como um Value Object
+  // Note que ele não pode ser "alterado", apenas substituído já que agora estamos criando um address do tipo Address
+  set Address(address: Address) {
+    this._address = address
   }
 
 }
