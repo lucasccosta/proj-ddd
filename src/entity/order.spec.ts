@@ -26,8 +26,8 @@ describe("Customer unit tests", () => {
   it('should calculate total', () => {
 
     expect(() => {
-      let item1 = new OrderItem("1", "item 1", 100)
-      let item2 = new OrderItem("2", "item 2", 150)
+      let item1 = new OrderItem("1", "item 1", 100, 1)
+      let item2 = new OrderItem("2", "item 2", 150, 1)
 
       let order = new Order("1230", "", [item1, item2])
 
