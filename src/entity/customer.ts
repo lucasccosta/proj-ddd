@@ -6,7 +6,7 @@ export default class Customer {
   _name: string
   _address!: Address
   
-  constructor(id: string, name: string, address: string) {
+  constructor(id: string, name: string) {
     this._id = id
     this._name = name
     this.validate()
