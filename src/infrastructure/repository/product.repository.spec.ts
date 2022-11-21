@@ -69,7 +69,7 @@ describe("Product repository test", () => {
     const product = new Product("1", "Product 1", 100);
 
     await productRepository.create(product);
-    const productModel = await productRepository.get_by_id("1");
+    const productModel = await productRepository.getById("1");
 
     expect(productModel).toStrictEqual(product);
   });
