@@ -3,13 +3,15 @@ import Address from "./address";
 export default class Customer {
   private _id: string;
   private _name: string;
+  private _cpf: string;
   private _address!: Address;
   private _active: boolean = false;
   private _rewardPoints: number = 0;
 
-  constructor(id: string, name: string) {
+  constructor(id: string, name: string, cpf: string) {
     this._id = id;
     this._name = name;
+    this._cpf = cpf;
     this.validate();
   }
 
@@ -19,6 +21,9 @@ export default class Customer {
     }
     if (this._name.length === 0) {
       throw new Error("Name is required");
+    }
+    if (this._cpf.length !== 11) {
+      throw new Error("Cpf must have exactly 11 characters");
     }
   }
 
@@ -30,8 +35,16 @@ export default class Customer {
     return this._name;
   }
 
-  get isActive(): boolean {
+  get cpf(): string {
+    return this._cpf;
+  }
+
+  isActive(): boolean {
     return this._active;
+  }
+
+  get Address(): Address {
+    return this._address;
   }
 
   get rewardPoints(): number {
@@ -45,6 +58,10 @@ export default class Customer {
   changeName(name: string) {
     this._name = name;
     this.validate();
+  }
+
+  changeAddress(address: Address) {
+    this._address = address;
   }
 
   // Address não é inicializado mas ele pode ser setado como um Value Object
