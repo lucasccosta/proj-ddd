@@ -5,7 +5,7 @@ import OrderService from "./order.service";
 
 describe("Order service unit tests", () => {
   it("should place an order", () => {
-    const customer = new Customer("c1", "Customer 1");
+    const customer = new Customer("c1", "Customer 1", "19283748546");
     const orderItem1 = new OrderItem("i1", "Item 1", 10, "p1", 1);
 
     const order = OrderService.placeOrder(customer, [orderItem1]);
